@@ -11,7 +11,8 @@ RUN apt-get update && apt-get install -y \
     libzip-dev \
     nano \
     zip \
-    unzip
+    unzip \
+    curl # Ajout de curl pour télécharger Composer
 
 # Install SQL Server drivers
 RUN curl https://packages.microsoft.com/keys/microsoft.asc | apt-key add - && \
@@ -23,11 +24,19 @@ RUN curl https://packages.microsoft.com/keys/microsoft.asc | apt-key add - && \
 # Other PHP extensions
 RUN docker-php-ext-install pdo pdo_mysql
 
+# Install Composer
+RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer \
+    composer install
+
 # Copy application source code to the container
 COPY . /var/www/app
 
 # Set working directory
 WORKDIR /var/www/app
+
+RUN cp .env.exemple .env \
+    php artisan key:generate \
+    php artisan migrate
 
 # Set file ownership
 RUN chown -R www-data:www-data /var/www/app
