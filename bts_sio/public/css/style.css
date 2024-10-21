@@ -1,0 +1,56 @@
+/* Couleurs basées sur le logo du lycée */
+html, body {
+    height: 100%;
+    margin: 0;
+}
+
+.container-wrapper {
+    min-height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+main {
+    flex: 1;
+}
+
+body {
+    background-color: #FAF9FE;
+}
+
+header {
+    background-color: #01004E;
+    color: #FAF9FE;
+}
+
+.btn-primary {
+    background-color: #0600C0;
+    border-color: #0600C0;
+}
+
+.btn-accent {
+    background-color: #BD005E;
+    border-color: #BD005E;
+    color: #FFF;
+}
+
+footer {
+    background-color: #01004E;
+    color: #FAF9FE;
+    padding: 20px 0;
+    text-align: center;
+}
+
+.section-header {
+    margin-bottom: 30px;
+    text-align: center;
+    color: #0600C0;
+}
+
+.card-title {
+    color: #01004E;
+}
+
+.btn:hover {
+    opacity: 0.8;
+}
