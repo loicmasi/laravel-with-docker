@@ -34,10 +34,6 @@ COPY . /var/www/app
 # Set working directory
 WORKDIR /var/www/app
 
-RUN cp .env.exemple .env \
-    php artisan key:generate \
-    php artisan migrate
-
 # Set file ownership
 RUN chown -R www-data:www-data /var/www/app
 
